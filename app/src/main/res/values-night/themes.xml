@@ -3,5 +3,20 @@
     <style name="Base.Theme.BigScreen" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">10%</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:windowBackground">@drawable/ic_launcher_background</item>
+    </style>
+
+    <style name="Theme.BigScreen" parent="Base.Theme.BigScreen" />
+
+    <style name="background">
+        <item name="android:background">@android:color/black</item>
+    </style>
+
+    <style name="oval">
+        <item name="android:background">@drawable/oval</item>
+        <item name="android:backgroundTint">@android:color/white</item>
     </style>
 </resources>

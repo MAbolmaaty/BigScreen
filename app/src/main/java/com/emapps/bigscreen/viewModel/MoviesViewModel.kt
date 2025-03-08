@@ -1,5 +1,7 @@
 package com.emapps.bigscreen.viewModel
 
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.Pager
@@ -18,6 +20,10 @@ private const val MAX_SIZE = 60
 @HiltViewModel
 class MoviesViewModel @Inject constructor(private val repository: MoviesRepository) : ViewModel() {
 
+    var selectedMovie: Movie? = null
+
+    private val _updatedMovie = MutableLiveData<Movie>()
+
     fun fetchBestMovies(year: String): Flow<PagingData<Movie>> {
         return Pager(
             config = PagingConfig(
@@ -25,10 +31,21 @@ class MoviesViewModel @Inject constructor(private val repository: MoviesReposito
                 enablePlaceholders = false,
                 maxSize = MAX_SIZE),
             pagingSourceFactory = {
-                repository.moviesPagingSource(
-                    year
-                )
+                repository.moviesPagingSource(year)
             }
         ).flow.cachedIn(viewModelScope)
+    }
+
+    fun updateMovie(movie: Movie) {
+        _updatedMovie.postValue(movie)
+    }
+
+    fun observeMovieUpdate(
+        lifecycleOwner: LifecycleOwner,
+        observer: (Movie) -> Unit
+    ) {
+        _updatedMovie.observe(lifecycleOwner) {
+            it.let(observer)
+        }
     }
 }

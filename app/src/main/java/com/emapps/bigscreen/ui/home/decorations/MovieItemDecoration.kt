@@ -12,6 +12,6 @@ class MovieItemDecoration : RecyclerView.ItemDecoration() {
         parent: RecyclerView,
         state: RecyclerView.State
     ) {
-        outRect.right = parent.resources.getDimensionPixelSize(R.dimen.space_medium)
+        outRect.bottom = parent.resources.getDimensionPixelSize(R.dimen.medium)
     }
 }

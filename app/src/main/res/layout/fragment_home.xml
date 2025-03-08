@@ -3,25 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusable="true"
+    style="@style/background"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.home.views.HomeFragment">
-
-    <TextView
-        android:id="@+id/best_movies_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/best_movies"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/best_movies_list"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="@dimen/space_medium"
+        android:padding="@dimen/medium"
         android:clipToPadding="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/best_movies_label"/>
+        app:layout_constraintTop_toTopOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

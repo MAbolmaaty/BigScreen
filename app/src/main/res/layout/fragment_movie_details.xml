@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/background"
+    android:fillViewport="true"
+    android:scrollbarThumbVertical="@null"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.movie_details.MovieDetailsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/poster"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/poster"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bg_poster_2"
+            app:layout_constraintBottom_toTopOf="@id/guideline_poster"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_poster"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.7" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium"
+            android:fontFamily="@font/montserrat_bold"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@id/btn_like"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/poster" />
+
+        <ImageView
+            android:id="@+id/ic_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium"
+            android:layout_marginTop="@dimen/small"
+            android:contentDescription="@string/rating"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            app:srcCompat="@drawable/ic_rating" />
+
+        <TextView
+            android:id="@+id/rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/half_small"
+            app:layout_constraintBottom_toBottomOf="@id/ic_rate"
+            app:layout_constraintStart_toEndOf="@id/ic_rate"
+            app:layout_constraintTop_toTopOf="@id/ic_rate"
+            tools:text="7.8" />
+
+        <ImageView
+            android:id="@+id/ic_votes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium"
+            android:contentDescription="@string/votes"
+            app:layout_constraintBottom_toBottomOf="@id/ic_rate"
+            app:layout_constraintStart_toEndOf="@id/rate"
+            app:layout_constraintTop_toTopOf="@id/ic_rate"
+            app:srcCompat="@drawable/ic_vote" />
+
+        <TextView
+            android:id="@+id/votes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/half_small"
+            app:layout_constraintBottom_toBottomOf="@id/ic_votes"
+            app:layout_constraintStart_toEndOf="@id/ic_votes"
+            app:layout_constraintTop_toTopOf="@id/ic_votes"
+            tools:text="116" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_like"
+            android:layout_width="wrap_content"
+            android:layout_height="46dp"
+            android:layout_marginEnd="@dimen/medium"
+            android:background="@drawable/stroke_corner"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:letterSpacing="0"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            app:backgroundTint="@null"
+            app:layout_constraintBottom_toBottomOf="@id/title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/title"
+            tools:text="@string/add_to_favorites" />
+
+        <TextView
+            android:id="@+id/overview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/medium"
+            android:layout_marginVertical="@dimen/small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ic_rate"
+            app:layout_constraintVertical_bias="0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
